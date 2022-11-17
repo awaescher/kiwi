@@ -5,11 +5,11 @@ public class Program
 {
 	// usage
 	//   kiwiread.exe -i 192.168.178.83 -d MyReserve -t StateOfCharge
-	//   kiwiread.exe --ip=192.168.178.83 --device=MyReserve --tagname=StateOfCharge
+	//   kiwiread.exe --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge
 
 	// usage with dotnet run
 	//   dotnet run -- -i 192.168.178.83 -d MyReserve -t StateOfCharge
-	//   dotnet run -- --ip=192.168.178.83 --device=MyReserve --tagname=StateOfCharge --add-timestamp
+	//   dotnet run -- --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge --add-timestamp
 
 	public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
@@ -28,9 +28,9 @@ public class Program
 	[Required]
 	[Option(CommandOptionType.MultipleValue, 
 		ShortName = "t", 
-		LongName = "tagname", 
+		LongName = "tag", 
 		Description = "Required. One or more tag names of the json classes to return the values from.")]
-	public string[] TagNames { get; } = Array.Empty<string>();
+	public string[] Tags { get; } = Array.Empty<string>();
 
 	[Option(ShortName = "ts", 
 		LongName = "add-timestamp",
@@ -48,13 +48,13 @@ public class Program
 
 		string? result;
 
-		var returnComplex = TagNames.Length != 1 || AddTimeStamp;
+		var returnComplex = Tags.Length != 1 || AddTimeStamp;
 		if (returnComplex)
 		{
 			var resultValues = new Dictionary<string, object>();
 
-			foreach (var tagName in TagNames)
-				resultValues[tagName] = device.GetValue(tagName);
+			foreach (var tag in Tags)
+				resultValues[tag] = device.GetValue(tag);
 
 			if (AddTimeStamp)
 				resultValues["UtcTimeStamp"] = DateTime.UtcNow;
@@ -63,7 +63,7 @@ public class Program
 		}
 		else
 		{ 
-			result = device.GetValue(TagNames.Single());
+			result = device.GetValue(Tags.Single());
 		}
 
 		Console.WriteLine(result);

@@ -1,8 +1,8 @@
 ﻿namespace kiwipush.Exceptions;
 
-public class TagNameNotFoundException : KiwiException
+public class TagNotFoundException : KiwiException
 {
-    public TagNameNotFoundException(string? tagName, Exception? innerException) : base($"Tag name \"{tagName}\" could not be found.", innerException)
+    public TagNotFoundException(string? tag, Exception? innerException) : base($"Tag name \"{tag}\" could not be found.", innerException)
     {
     }
 }
