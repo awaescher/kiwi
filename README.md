@@ -14,11 +14,11 @@ Other battery manufacturers might also be supported. In lack of test devices, I 
 
 ## Usage
 
-`kiwiread` requires the ip address from your local API gateway sending your data to kiwigrid. Use the ip address with the `--ip` argument. Read on to find out how to discover your API gateway in your local network.
+`kiwiread` requires the ip address from your local API gateway which is sending your data to kiwigrid. Use the ip address with the `--ip` argument. Read on to find out how to discover your API gateway in your local network.
 
-You API gateway will provide many measurements for your available devices registered in your API gateway. You will need to query them with the name of the corresponding device. Read on to find the names of the devices that are available to you. These device names make the argument `--device`.
+Your API gateway will provide many measurements for the devices that were registered upfront. You will need to query them with the name of the corresponding device. Read on to find the names of the devices that are available to you. These device names make the argument `--device`.
 
-`kiwiread` can read one or multiple values for the specified device. Simply define these values as with the argument `--tag` as shown below. Usually, there are a lot of values in the response of your API gateway. See below how to find out which values are available to you.
+`kiwiread` can read one or multiple values for the specified device. Simply define these values with the argument `--tag` as shown below. Usually, there are a lot of values in the response of your API gateway. Read on to find out which values are available to you.
 
 ### Querying a single value:
 
@@ -51,7 +51,7 @@ kiwiread --help
 
 ## Finding your local API gateway
 
-To use this app, you need to know the ip address of your local API gateway sending your data to kiwigrid.
+To use this app, you need to know the ip address of your local API gateway which is sending your data to kiwigrid.
 
 Scan your local network to find this device. If you find possible candidates, try them with this URL template:
 
@@ -82,7 +82,7 @@ Once you found the API gateway you might want to inspect the values you can read
 
 In the response, you will find many information blocks that are assigned to a device over a `guid`. This guid belongs to a device which is linked together in a "IdName" tag value (see image above).
 
-These blocks also contain a `tag` which is the metric like "StateOfHealth" and a `value` which holds the value for this metric.
+These blocks also contain a `tagName` which is the metric like "StateOfHealth" and a `value` which holds the value for this metric.
 
 ![Verifying device names](media/tagnames-and-values.png)
 
