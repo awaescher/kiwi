@@ -1,8 +1,10 @@
 # kiwi
 
-This tiny app makes it easy to read values from your **kiwigrid** powered devices via command line.
+This tiny app makes it easy to find registered devices from your **kiwigrid** installation and read their values via command line.
 
-![kiwi prompt](media/prompt.png)
+![kiwi devices prompt](media/kiwi-devices.png)
+
+![kiwi read prompt](media/kiwi-read.png)
 
 ## What is "kiwigrid"?
 
@@ -63,12 +65,6 @@ If you are using SOLARWATT's EnergyManager, you can find the local ip address ea
 Just head over to [the portal](https://desktop.energymanager.com/), login and click on the highlighted menu:
 
 ![How to find the local API gateway with Solarwatt](media/FindIpSolarwatt.png)
-
-## Finding registered devices
-
-Once you found the API gateway, you should be able to navigate to it with your browser. There you'll find the registered devices. These names are the values to be used with the argument `--device`.
-
-![Finding registered devices](media/find-device-name.png)
 
 ### Verifying registered devices
 

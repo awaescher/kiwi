@@ -1,0 +1,35 @@
+Made with https://ray.so/
+
+
+---
+
+
+kiwi read
+  --ip=192.168.178.83
+  --device="MyReserve Battery"
+  --tag=StateOfCharge  
+  --tag=ModeConverter
+  
+{"StateOfCharge":"69.4","ModeConverter":"CHARGING"}
+
+
+---
+
+
+kiwi devices
+  --ip=192.168.178.83
+  
+ERC04-000004650
+Profile App
+MyReserve a30b000a5e5d
+Forecast
+MyReserve PV
+Standort
+Fronius Nr. 28302880
+SimpleSwitcher
+GridFlow
+Schedule App
+Wäscher, Bad Schussenried
+Keba KC-P30 c-series 22645433
+SEM
+MyReserve ACS
