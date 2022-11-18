@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace kiwiread.Commands;
+namespace kiwi.Commands;
 
 public abstract class KiwiCommand
 {

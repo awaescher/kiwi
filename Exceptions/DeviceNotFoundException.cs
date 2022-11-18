@@ -1,4 +1,4 @@
-﻿namespace kiwiread.Exceptions;
+﻿namespace kiwi.Exceptions;
 
 public class DeviceNotFoundException : KiwiException
 {

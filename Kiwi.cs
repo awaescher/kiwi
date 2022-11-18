@@ -1,7 +1,7 @@
 ﻿using JsonPathway;
-using kiwiread.Exceptions;
+using kiwi.Exceptions;
 
-namespace kiwiread;
+namespace kiwi;
 
 public class Kiwi
 {

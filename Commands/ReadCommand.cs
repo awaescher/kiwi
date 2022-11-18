@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace kiwiread.Commands;
+namespace kiwi.Commands;
 
 [Command("read", Description = "Reads values for specified kiwigrid devices. Use the 'devices' command to find devices that are available to you.")]
 public class ReadCommand : KiwiCommand
 {
 	// usage
-	//   kiwiread.exe read -i 192.168.178.83 -d MyReserve -t StateOfCharge
-	//   kiwiread.exe read --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge
+	//   kiwi.exe read -i 192.168.178.83 -d MyReserve -t StateOfCharge
+	//   kiwi.exe read --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge
 
 	// usage with dotnet run
 	//   dotnet run -- read -i 192.168.178.83 -d MyReserve -t StateOfCharge

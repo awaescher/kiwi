@@ -1,12 +1,12 @@
-﻿using kiwiread.Commands;
+﻿using kiwi.Commands;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace kiwiread;
+namespace kiwi;
 
 /// <summary>
 /// In this example, each command a nested class type.
 /// </summary>
-[Command(Name = "kiwiread", Description = "Read values from your kiwigrid API gateway"),
+[Command(Name = "kiwi", Description = "Read values from your kiwigrid API gateway"),
  Subcommand(typeof(ReadCommand), typeof(DevicesCommand))]
 partial class Program
 {

@@ -1,8 +1,8 @@
-# kiwiread
+# kiwi
 
 This tiny app makes it easy to read values from your **kiwigrid** powered devices via command line.
 
-![kiwiread prompt](media/prompt.png)
+![kiwi prompt](media/prompt.png)
 
 ## What is "kiwigrid"?
 
@@ -14,11 +14,11 @@ Other battery manufacturers might also be supported. In lack of test devices, I 
 
 ## Usage
 
-`kiwiread` requires the ip address from your local API gateway which is sending your data to kiwigrid. Use the ip address with the `--ip` argument. Read on to find out how to discover your API gateway in your local network.
+`kiwi` requires the ip address from your local API gateway which is sending your data to kiwigrid. Use the ip address with the `--ip` argument. Read on to find out how to discover your API gateway in your local network.
 
 Your API gateway will provide many measurements for the devices that were registered upfront. You will need to query them with the name of the corresponding device. Read on to find the names of the devices that are available to you. These device names make the argument `--device`.
 
-`kiwiread` can read one or multiple values for the specified device. Simply define these values with the argument `--tag` as shown below. Usually, there are a lot of values in the response of your API gateway. Read on to find out which values are available to you.
+`kiwi` can read one or multiple values for the specified device. Simply define these values with the argument `--tag` as shown below. Usually, there are a lot of values in the response of your API gateway. Read on to find out which values are available to you.
 
 ### Querying a single value:
 

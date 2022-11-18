@@ -1,6 +1,6 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
 
-namespace kiwiread.Commands;
+namespace kiwi.Commands;
 
 [Command("devices",
 	 Description = "Lists registered kiwigrid devices")]
