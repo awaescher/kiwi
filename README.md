@@ -23,7 +23,7 @@ You API gateway will provide many measurements for your available devices regist
 ### Querying a single value:
 
 ```powershell
-kiwiread --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge
+kiwi read --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge
 
 92.5
 ```
@@ -31,7 +31,7 @@ kiwiread --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge
 ### Querying multiple values:
 
 ```powershell
-kiwiread --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge --tag=ModeConverter --tag=StateOfHealth
+kiwi read --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge --tag=ModeConverter --tag=StateOfHealth
   
 {"StateOfCharge":"92.5","ModeConverter":"DISCHARGING","StateOfHealth":"96"}
 ```
@@ -39,14 +39,14 @@ kiwiread --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge --tag=ModeCo
 ### Include the timestamp of the API request
 
 ```powershell
-kiwiread --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge --add-timestamp
+kiwi read --ip=192.168.178.83 --device=MyReserve --tag=StateOfCharge --add-timestamp
   
 {"StateOfCharge":"92.5","UtcTimeStamp":"2022-11-17T18:54:16.1410811Z"}
 ```
 
 ### Full command line reference
 ```powershell
-kiwiread --help
+kiwi --help
 ```
 
 ## Finding your local API gateway
@@ -89,7 +89,7 @@ These blocks also contain a `tag` which is the metric like "StateOfHealth" and a
 In the example above, the following command ...
 
 ```powershell
-kiwiread --ip=... --device=... --tag=StateOfHealth
+kiwi read --ip=... --device=... --tag=StateOfHealth
 ```
 would return the value `96`
 

@@ -1,7 +1,7 @@
 ﻿using JsonPathway;
-using kiwipush.Exceptions;
+using kiwiread.Exceptions;
 
-namespace kiwipush;
+namespace kiwiread;
 
 public class Kiwi
 {
@@ -12,7 +12,28 @@ public class Kiwi
 		JsonContent = jsonContent ?? throw new ArgumentNullException(nameof(jsonContent));
 	}
 
-	public KiwiDevice FindDevice(string deviceName)
+	public Task<IEnumerable<KiwiDevice>> FindDevices()
+	{
+		const string GUID_PROPERTY = "guid";
+		const string VALUE_PROPERTY = "value";
+		
+		try
+		{
+			var nameSelector = $"result.items[*].tagValues[?(@.tagName=='IdName')]";
+
+			var elements = JsonPath.ExecutePath(nameSelector, JsonContent);
+
+			var devices = elements.Select(e => new KiwiDevice(this, e.GetProperty(VALUE_PROPERTY).ToString(), e.GetProperty(GUID_PROPERTY).ToString()));
+
+			return Task.FromResult(devices);
+		}
+		catch (KeyNotFoundException ex)
+		{
+			throw new PropertyNotFoundException(GUID_PROPERTY, ex);
+		}
+	}
+
+	public Task<KiwiDevice> FindDevice(string deviceName)
 	{
 		const string GUID_PROPERTY = "guid";
 
@@ -20,10 +41,11 @@ public class Kiwi
 		{
 			var nameSelector = $"result.items[*].tagValues[?(@.tagName=='IdName' && @.value=='{deviceName}')]";
 
-			var element = JsonPath.ExecutePath(nameSelector, JsonContent);
-			var guid = element.First().GetProperty(GUID_PROPERTY).ToString();
+			var elements = JsonPath.ExecutePath(nameSelector, JsonContent);
+			var guid = elements.First().GetProperty(GUID_PROPERTY).ToString();
 
-			return new KiwiDevice(this, deviceName, guid);
+			var device = new KiwiDevice(this, deviceName, guid);
+			return Task.FromResult(device);
 		}
 		catch (InvalidOperationException ex)
 		{

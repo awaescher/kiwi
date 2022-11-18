@@ -1,4 +1,4 @@
-﻿namespace kiwipush.Exceptions;
+﻿namespace kiwiread.Exceptions;
 
 public class KiwiException : Exception
 {

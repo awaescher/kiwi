@@ -1,18 +1,20 @@
 ﻿using JsonPathway;
-using kiwipush;
-using kiwipush.Exceptions;
+using kiwiread.Exceptions;
+
+namespace kiwiread;
 
 public class KiwiDevice
 {
-	public Kiwi Kiwi { get; }
+	private Kiwi _kiwi;
 	public string Name { get; }
 	public string Guid { get; }
 
 	public KiwiDevice(Kiwi kiwi, string name, string guid)
 	{
-		Kiwi = kiwi;
-		Name = name;
-		Guid = guid;
+		_kiwi = kiwi ?? throw new ArgumentNullException(nameof(kiwi));
+
+		Name = name ?? throw new ArgumentNullException(nameof(name));
+		Guid = guid ?? throw new ArgumentNullException(nameof(guid));
 	}
 
 	public string GetValue(string tag)
@@ -23,7 +25,7 @@ public class KiwiDevice
 		{
 			var valueSelector = $"result.items[*].tagValues[?(@.tagName=='{tag}' && @.guid == '{Guid}')]";
 
-			var element = JsonPath.ExecutePath(valueSelector, Kiwi.JsonContent);
+			var element = JsonPath.ExecutePath(valueSelector, _kiwi.JsonContent);
 			return element.First().GetProperty(VALUE_PROPERTY).ToString();
 		}
 		catch (InvalidOperationException ex)
